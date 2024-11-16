@@ -14,7 +14,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // Register WebSocket endpoint with CORS configuration
         registry.addEndpoint("/chat")
-            .setAllowedOrigins("https://websocket-chat-app-production-dfe7.up.railway.app/chat") // Frontend URL
+            .setAllowedOrigins("https://websocket-chat-app-production-dfe7.up.railway.app") // Frontend URL
             .withSockJS(); // Enables SockJS for fallback
     }
 
