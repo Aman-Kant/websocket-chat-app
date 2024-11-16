@@ -14,9 +14,16 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer{
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         
         registry.addEndpoint("/chat")
-        .setAllowedOrigins("*")
+        .setAllowedOrigins("https://websocket-chat-app-production-dfe7.up.railway.app")
         .withSockJS();
-    }
+        // .addEndpoint("/chat")
+        // .setAllowedOrigins("https://websocket-chat-app-production-dfe7.up.railway.app")  // Frontend URL
+        // .allowedMethods("GET", "POST", "PUT", "DELETE")  // Allowed HTTP methods
+        // .allowedHeaders("*")  // Allow all headers
+        // .allowCredentials(true);  // Allow credentials if needed (cookies, sessions)
+}
+        
+    
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
