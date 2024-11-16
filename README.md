@@ -1,7 +1,3 @@
-Here’s a sample README for your WebSocket chat application project with the access URL included:
-
----
-
 # WebSocket Chat Application
 
 This is a WebSocket-based real-time chat application built using **Spring Boot**, **SockJS**, and **STOMP**. It allows multiple users to join and send messages in real-time.
