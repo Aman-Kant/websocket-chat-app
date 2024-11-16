@@ -8,30 +8,22 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 @Configuration
 @EnableWebSocketMessageBroker
-public class WebSocketConfig implements WebSocketMessageBrokerConfigurer{
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        
+        // Register WebSocket endpoint with CORS configuration
         registry.addEndpoint("/chat")
-        .setAllowedOrigins("https://websocket-chat-app-production-dfe7.up.railway.app")
-        .withSockJS();
-        // .addEndpoint("/chat")
-        // .setAllowedOrigins("https://websocket-chat-app-production-dfe7.up.railway.app")  // Frontend URL
-        // .allowedMethods("GET", "POST", "PUT", "DELETE")  // Allowed HTTP methods
-        // .allowedHeaders("*")  // Allow all headers
-        // .allowCredentials(true);  // Allow credentials if needed (cookies, sessions)
-}
-        
-    
+            .setAllowedOrigins("https://websocket-chat-app-production-dfe7.up.railway.app/chat") // Frontend URL
+            .withSockJS(); // Enables SockJS for fallback
+    }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        //set message broke
+        // Enable the simple message broker to handle destinations starting with "/topic"
         registry.enableSimpleBroker("/topic");
+
+        // Prefix for application-specific messages (e.g., for client-to-server communication)
         registry.setApplicationDestinationPrefixes("/app");
-
-
-
     }
 }
